@@ -12,9 +12,14 @@ class DashboardController {
         $userName = $_SESSION['user_name'];
         $userType = $_SESSION['user_type'];
         $userId = $_SESSION['user_id'];
-        
-        // Obtener estadísticas básicas
+          // Obtener estadísticas básicas
         $stats = $this->getUserStats();
+        
+        // Obtener lista de usuarios si es admin
+        $allUsers = [];
+        if ($userType === 'admin') {
+            $allUsers = $this->getAllUsers();
+        }
         
         include 'views/dashboard.php';
     }
@@ -48,13 +53,32 @@ class DashboardController {
                 'user_types' => $userTypes,
                 'today_users' => $todayUsers
             ];
-            
-        } catch(PDOException $e) {
+              } catch(PDOException $e) {
             return [
                 'total_users' => 0,
                 'user_types' => [],
                 'today_users' => 0
             ];
+        }
+    }
+    
+    private function getAllUsers() {
+        try {
+            require_once 'config/database.php';
+            $database = new Database();
+            $db = $database->getConnection();
+            
+            // Obtener todos los usuarios ordenados por fecha de creación
+            $query = "SELECT id, nombre, correo, tipo_usuario, fecha_creacion 
+                     FROM users 
+                     ORDER BY fecha_creacion DESC";
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+        } catch(PDOException $e) {
+            return [];
         }
     }
 }
