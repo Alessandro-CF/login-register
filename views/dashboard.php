@@ -199,9 +199,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Información del usuario actual -->
+        </section>        <!-- Información del usuario actual -->
         <section class="bg-white rounded-xl shadow-lg p-6 animate-fade-in">
             <h3 class="text-lg font-semibold text-gray-800 mb-4">Tu Información</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -258,6 +256,58 @@
                 </div>
             </div>
         </section>
+
+        <!-- Lista de usuarios (solo para administradores) -->
+        <?php if ($userType === 'admin' && !empty($allUsers)): ?>
+        <section class="bg-white rounded-xl shadow-lg p-6 animate-fade-in mt-8">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold text-gray-800">Lista de Usuarios Registrados</h3>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <?php echo count($allUsers); ?> usuarios
+                </span>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">ID</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Nombre</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Correo</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Tipo</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Fecha de Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <?php foreach ($allUsers as $user): ?>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="py-3 px-4 text-sm text-gray-600">#<?php echo $user['id']; ?></td>
+                            <td class="py-3 px-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
+                                        <span class="text-indigo-600 font-semibold text-sm">
+                                            <?php echo strtoupper(substr($user['nombre'], 0, 1)); ?>
+                                        </span>
+                                    </div>
+                                    <span class="font-medium text-gray-800"><?php echo htmlspecialchars($user['nombre']); ?></span>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 text-sm text-gray-600"><?php echo htmlspecialchars($user['correo']); ?></td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 rounded-full text-xs font-medium <?php echo $user['tipo_usuario'] === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'; ?>">
+                                    <?php echo $user['tipo_usuario'] === 'admin' ? 'Administrador' : 'Usuario'; ?>
+                                </span>
+                            </td>
+                            <td class="py-3 px-4 text-sm text-gray-600">
+                                <?php echo date('d/m/Y H:i', strtotime($user['fecha_creacion'])); ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <?php endif; ?>
     </main>
 
     <footer class="bg-white border-t mt-12">
