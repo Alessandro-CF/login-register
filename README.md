@@ -2,19 +2,19 @@
 
 Un sistema completo de autenticación con arquitectura MVC, validaciones del lado cliente y servidor, y una interfaz moderna con Tailwind CSS.
 
-## 🚀 Características
+## Características
 
-- ✅ Arquitectura MVC limpia y organizada
-- ✅ Validaciones en tiempo real con JavaScript
-- ✅ Validaciones del lado servidor con PHP
-- ✅ Interfaz moderna y responsiva con Tailwind CSS
-- ✅ Indicador de fortaleza de contraseña
-- ✅ Animaciones y transiciones suaves
-- ✅ Mensajes de error y éxito dinámicos
-- ✅ Seguridad con hash de contraseñas
-- ✅ Manejo de sesiones
+- Arquitectura MVC limpia y organizada
+- Validaciones en tiempo real con JavaScript
+- Validaciones del lado servidor con PHP
+- Interfaz moderna y responsiva con Tailwind CSS
+- Indicador de fortaleza de contraseña
+- Animaciones y transiciones suaves
+- Mensajes de error y éxito dinámicos
+- Seguridad con hash de contraseñas
+- Manejo de sesiones
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Login-Register/
@@ -39,7 +39,7 @@ Login-Register/
 └── index.php               # Archivo principal
 ```
 
-## 🛠️ Instalación
+## Instalación
 
 ### Prerrequisitos
 
@@ -73,8 +73,11 @@ Login-Register/
      - Database: login_register_db
      - Usuario: root
      - Contraseña: (vacía)
+5. **Validar entorno de despliegue**
+   - Abre tu navegador web
+   - Ve a: `http://localhost/Login-Register/check.php`
 
-5. **Acceder a la aplicación**
+6. **Acceder a la aplicación**
    - Abre tu navegador web
    - Ve a: `http://localhost/Login-Register` (o la ruta donde hayas colocado el proyecto)
 
@@ -82,7 +85,7 @@ Login-Register/
 
 La aplicación creará automáticamente la tabla `users` la primera vez que se ejecute. No necesitas ejecutar scripts SQL adicionales.
 
-## 📱 Uso
+## Uso
 
 ### Registro de Usuario
 
@@ -106,7 +109,7 @@ La aplicación creará automáticamente la tabla `users` la primera vez que se e
 2. Ingresa tu correo y contraseña
 3. El sistema verificará las credenciales
 
-## 🎨 Características de la Interfaz
+## Características de la Interfaz
 
 ### Validaciones en Tiempo Real
 
@@ -129,7 +132,7 @@ La aplicación creará automáticamente la tabla `users` la primera vez que se e
 - Optimizado para dispositivos móviles
 - Navegación táctil amigable
 
-## 🔧 Personalización
+## Personalización
 
 ### Colores y Estilos
 
@@ -160,7 +163,7 @@ private $username = 'tu-usuario';
 private $password = 'tu-contraseña';
 ```
 
-## 🔐 Seguridad
+## Seguridad
 
 - Contraseñas hasheadas con `password_hash()`
 - Validación y sanitización de datos de entrada
@@ -168,7 +171,7 @@ private $password = 'tu-contraseña';
 - Manejo seguro de sesiones
 - Validación tanto en cliente como servidor
 
-## 🚀 Próximas Mejoras
+## Próximas Mejoras
 
 - [ ] Recuperación de contraseña por email
 - [ ] Verificación de email
@@ -177,7 +180,7 @@ private $password = 'tu-contraseña';
 - [ ] Remember me functionality
 - [ ] Two-factor authentication
 
-## 📝 Notas Técnicas
+## Notas Técnicas
 
 - **PHP**: Versión 7.4+
 - **Base de Datos**: MySQL con PDO
@@ -185,7 +188,7 @@ private $password = 'tu-contraseña';
 - **JavaScript**: Vanilla JS (ES6+)
 - **Patrón**: MVC (Model-View-Controller)
 
-## 🤝 Contribuciones
+## Contribuciones
 
 ¡Las contribuciones son bienvenidas! Por favor:
 
@@ -195,11 +198,11 @@ private $password = 'tu-contraseña';
 4. Push a la rama
 5. Abre un Pull Request
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-## 🆘 Soporte
+## Soporte
 
 Si encuentras algún problema o tienes preguntas:
 
@@ -208,4 +211,4 @@ Si encuentras algún problema o tienes preguntas:
 3. Revisa los logs de PHP para errores
 4. Asegúrate de que las rutas sean correctas
 
-¡Happy coding! 🎉
+¡Happy coding!
